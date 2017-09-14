@@ -8,11 +8,11 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <h4>HI GUYS</h4>
+  <ion-list>
+    <ion-item class="text" *ngFor="let item of items | async">
+      {{item.$value}}
+    </ion-item>
+  </ion-list>
+  <h1>{{ timbo | async }}</h1>
 </ion-content>
