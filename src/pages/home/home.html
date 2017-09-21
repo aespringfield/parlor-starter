@@ -8,11 +8,21 @@
 </ion-header>
 
 <ion-content padding>
-  <h4>HI GUYS</h4>
+  <h4 *ngIf="user">HI {{user?.displayName | uppercase}}</h4>
+
+  <button ion-button outline (click)="signInWithGoogle()">Log In</button>
+  <button ion-button outline (click)="signOut()">Log Out</button>
+
+
   <ion-list>
     <ion-item class="text" *ngFor="let item of items | async">
       {{item.$value}}
     </ion-item>
   </ion-list>
-  <h1>{{ timbo | async }}</h1>
+  <ion-item>
+      <ion-label color="primary">Add an animal</ion-label>
+      <ion-input placeholder="Animal" #animal (keyup.enter)="addAnimal(animal.value); animal.value=''"></ion-input>
+  </ion-item>
+  <button ion-button (click)="addAnimal(animal.value); animal.value=''">Add an animal</button>
+
 </ion-content>

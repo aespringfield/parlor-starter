@@ -13,10 +13,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 import { Config } from './config'
-
-import { AsyncPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -41,6 +40,7 @@ import { AsyncPipe } from '@angular/common';
   providers: [
     StatusBar,
     SplashScreen,
+    GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
