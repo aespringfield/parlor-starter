@@ -15,8 +15,7 @@ import * as firebase from 'firebase/app';
 export class HomePage implements OnInit {
   items: FirebaseListObservable<any[]>;
   animal: string;
-  user: object;
-  // displayName: string;
+  displayName: string;
 
   constructor(
     public navCtrl: NavController, 
@@ -28,11 +27,10 @@ export class HomePage implements OnInit {
     this.items = afDB.list('/Animals');
     afAuth.authState.subscribe((user: firebase.User) => {
       if (!user) {
-        // this.displayName = null;
+        this.displayName = null;
         return;
       }
-      // this.displayName = user.displayName;
-      this.user = user;
+      this.displayName = user.displayName;
     })
   }
 
@@ -42,9 +40,8 @@ export class HomePage implements OnInit {
       return this.googlePlus.login({})
       .then(res => {
         console.log(res);
-        const googleCredential = firebase.auth.GoogleAuthProvider.credential(res.id_token);
+        const googleCredential = firebase.auth.GoogleAuthProvider.credential(res.idToken);
         firebase.auth().signInWithCredential(googleCredential);
-        this.user = res.user;
       })
       .catch(err => {
         console.error(err);
@@ -53,13 +50,14 @@ export class HomePage implements OnInit {
       this.afAuth.auth
       .signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then(res => {
-        this.user = res.user;
-        console.log(this.user);;
+        console.log(res.user);
       });
     }
   }
 
   signOut() {
+    console.log('logging out');
+    
     this.afAuth.auth.signOut();
   }
 
@@ -75,6 +73,9 @@ export class HomePage implements OnInit {
     this.afDB.list('/Animals').push(animal);
   }
   
+  removeAnimal(animal): void {
+    this.afDB.list('/Animals').remove(animal);
+  }
 }
 
 function splitFirst(user): string {
