@@ -1,0 +1,94 @@
+{
+    "plays": {
+        "one": {
+            "timestamp": 12345,
+            "game": "saladBowl",
+            "parlor": "one",
+            "timeLeftOver": 0,
+            "teams": {
+                "one": {
+                    "name": "Romper Stompers",
+                    "points": 0,
+                    "members": {
+                        "1": "aespringfield",
+                        "2": "jbragland"
+                    }
+                },
+                "two": {
+                    "name": "Punkin Chunkers",
+                    "points": 0,
+                    "members": {
+                        "1": "stephsky", 
+                        "2": "fcpickles"
+                    }
+                }
+            },
+            "words": {
+                "one": "cupcake",
+                "two": "piano"
+            },
+            "round_1": {
+                "one": {
+                    "lastPassed": 1249875195 // timestamp
+                },
+                "two": {
+                    
+                }
+            }
+        }
+    },
+    "games": {
+        "saladBowl": {
+            "name": "Salad Bowl"
+        },
+        "euphemisms": {
+            "name": "Euphemisms"
+        },
+        "spy": {
+            "name": "Spy"
+        },
+        "lifeline": {
+            "name": "Lifeline"
+        }
+    },
+    "users": {
+        "aespringfield": {
+            "name": "Anna Springfield",
+            "email": "aespringfield@fakemail.com",
+            "password": "somepasswordhash", // if not gmail
+            "uid": "somenumber", // if gmail
+            "parlors": {
+                "one": true
+            },
+            "friends": {
+                "jbragland": true
+            }
+        },
+        "jbragland": {
+            "name": "Julianne Ragland",
+            "email": "jbragland@fakemail.com",
+            "uid": "somenumber", // if gmail
+            "parlors": {
+                "one": true
+            },
+            "friends": {
+                "aespringfield": true
+            }
+        }
+    },
+    "parlors": {
+        "one": {
+            "code": "XYQZ", // temporary code to allow anonymous web users to enter room
+            "name": "Ice Cream Parlor",
+            "token": "298gkjhag833325saaf", // temporary token to allow anonymous users to enter via link
+            "expiration": 182828282, // timestamp when code/token expire
+            "currentPlay": "one",
+            "members": { 
+                "aespringfield": true,
+                "jbragland": true,
+                "fcpickles": true,
+                "stephsky": true
+            }
+        }
+    }
+}

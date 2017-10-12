@@ -16,6 +16,9 @@ export class HomePage implements OnInit {
   items: FirebaseListObservable<any[]>;
   animal: string;
   displayName: string;
+  user: firebase.User;
+  session: FirebaseObjectObservable<any>;
+  sessionRef;
 
   constructor(
     public navCtrl: NavController, 
@@ -31,8 +34,12 @@ export class HomePage implements OnInit {
         return;
       }
       this.displayName = user.displayName;
+      this.user = user;
+      this.sessionRef = afDB.object(`sessions/${this.user.uid}`);
     })
   }
+
+  // {session: 45 }
 
   signInWithGoogle() {
     console.log('trying to sign in');
@@ -64,13 +71,9 @@ export class HomePage implements OnInit {
   ngOnInit(): void {
   }
 
-  addPanda(): void {
-    this.afDB.list('/Animals').push('panda');
-    console.log(this.animal);
-  }
-
   addAnimal(animal): void {
-    this.afDB.list('/Animals').push(animal);
+    let uid = this.user.uid;
+    this.sessionRef.set({uid: animal});
   }
   
   removeAnimal(animal): void {
