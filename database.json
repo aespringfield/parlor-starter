@@ -23,16 +23,13 @@
                     }
                 }
             },
-            "words": {
+            "cards": {
                 "one": "cupcake",
                 "two": "piano"
             },
             "round_1": {
                 "one": {
                     "lastPassed": 1249875195 // timestamp
-                },
-                "two": {
-                    
                 }
             }
         }

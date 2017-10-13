@@ -6,6 +6,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { CardPage } from '../pages/card/card';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -16,12 +17,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GooglePlus } from '@ionic-native/google-plus';
 
 import { Config } from './config'
+import { CardsProvider } from '../providers/cards/cards';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
+    CardPage,
   ],
   imports: [
     BrowserModule,
@@ -35,13 +38,15 @@ import { Config } from './config'
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    CardPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     GooglePlus,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CardsProvider
   ]
 })
 export class AppModule {}
